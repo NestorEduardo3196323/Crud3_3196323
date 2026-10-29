@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Crud3_3196323.MainPage"
+             BackgroundColor="#1f1f1f">
+
+    <FlexLayout Direction="Column">
+        <VerticalStackLayout Padding="15" FlexLayout.Basis="Auto" BackgroundColor="#1f1f1f">
+            <Entry x:Name="nombreEntry" Placeholder="Nombre del trabajador" TextColor="White" PlaceholderColor="Gray" />
+            <Entry x:Name="horasEntry" Placeholder="Horas trabajadas" Keyboard="Numeric" TextColor="White" PlaceholderColor="Gray" />
+            <Entry x:Name="pagoEntry" Placeholder="Pago por hora" Keyboard="Numeric" TextColor="White" PlaceholderColor="Gray" />
+            <Label x:Name="sueldoLabel" FontSize="24" TextColor="White" HorizontalOptions="Center" />
+            <Button x:Name="guardarBtn" Text="Calcular y Guardar" Clicked="guardarBtn_Clicked" />
+        </VerticalStackLayout>
+        <ListView x:Name="listview" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="listview_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout Padding="5">
+                            <Label Text="{Binding Nombre}" FontSize="17" FontAttributes="Bold" TextColor="White"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding Horas}" TextColor="White"/>
+                                <Label Grid.Column="1" Text="{Binding PagoHora}" TextColor="White"/>
+                                <Label Grid.Column="2" Text="{Binding Sueldo}" FontAttributes="Bold" TextColor="White"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </FlexLayout>
+</ContentPage>
